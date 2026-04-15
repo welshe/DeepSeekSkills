@@ -6,9 +6,9 @@ enum State {BUILD, WAVE}
 @onready var nav_region = $Map/NavigationRegion3D
 @onready var crystal = $Crystal
 @onready var player = $Player
-@onready var state_label = $HUD/VBoxContainer/StateLabel
-@onready var wave_label = $HUD/VBoxContainer/WaveLabel
-@onready var health_label = $HUD/VBoxContainer/HealthLabel
+@onready var state_label = $HUD/Panel/VBoxContainer/StateLabel
+@onready var wave_label = $HUD/Panel/VBoxContainer/WaveLabel
+@onready var health_label = $HUD/Panel/VBoxContainer/HealthLabel
 
 var enemy_scene = preload("res://scenes/Enemy.tscn")
 var tower_scene = preload("res://scenes/Tower.tscn")
