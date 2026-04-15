@@ -41,14 +41,20 @@ func start_wave():
     update_hud()
     # Spawn enemies for the wave
     var enemy_count = wave_number * 5
+    # Spawn enemies over time to make waves feel dynamic
     for i in range(enemy_count):
         var pos = Vector3(randf_range(-20, 20), 0, randf_range(-20, 20))
         spawn_enemy(pos)
+        await get_tree().create_timer(0.35)
 
 func spawn_enemy(pos: Vector3):
     var enemy = enemy_scene.instantiate()
     enemy.global_position = pos
-    enemy.set_target(crystal.global_position)
+    # Give enemy a reference to the crystal node so it can damage it on arrival
+    if enemy.has_method("set_target_node"):
+        enemy.set_target_node(crystal)
+    else:
+        enemy.set_target(crystal.global_position)
     add_child(enemy)
     enemies.append(enemy)
     enemy.connect("tree_exited", Callable(self, "_on_enemy_died").bind(enemy))
@@ -60,8 +66,10 @@ func _on_enemy_died(enemy):
         update_hud()
 
 func place_tower(pos: Vector3):
+    # Snap placement to a 1-unit grid for tidier layouts
+    var snapped = Vector3(round(pos.x), round(pos.y), round(pos.z))
     var tower = tower_scene.instantiate()
-    tower.global_position = pos
+    tower.global_position = snapped
     add_child(tower)
 
 func update_hud():
