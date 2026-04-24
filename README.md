@@ -1,80 +1,67 @@
-# Dungeon Defenders Recreation in Godot 4.5
+# DeepSeekSkills
 
-This is a faithful recreation of the classic tower defense game Dungeon Defenders, built in Godot 4.5.
+A curated collection of 15+ expert-level skill definitions for AI models. Each skill is a condensed, high-density cheat sheet designed to activate specialized expertise in specific domains.
 
-## Features Implemented
+**Publisher:** github.com/welshe  
+**Target Model:** DeepSeek v4  
+**Version:** 1.0.0
 
-- **3D Environment**: Basic dungeon map with walls, floor, and navigation mesh for enemy pathing
-- **Enemy Pathing**: Enemies use NavigationAgent3D to pathfind towards the crystal
-- **Towers**: Basic towers that shoot at enemies in range
-- **Player Character**: Controllable hero with WASD movement and attached camera
-- **Crystal**: Central objective that takes damage when enemies reach it
-- **Wave System**: Press G to start waves, build phases between waves
-- **HUD**: Displays current phase, wave number, and crystal health
-- **Game Flow**: Main Menu > Tavern > Enemy Map with build/wave cycles
+## Usage
 
-## Project Structure
+Each skill file is a self-contained YAML/Markdown hybrid that defines:
+- **Identity:** Who the AI becomes when activating this skill
+- **Methodology:** Step-by-step systematic approach
+- **Cheat Sheets:** Copy-paste ready patterns, commands, and code
+- **Anti-Patterns:** Common mistakes to avoid
+- **Integration:** How this skill composes with others
 
-- `scenes/`: Godot scene files (.tscn)
-  - MainMenu.tscn: Start menu
-  - Tavern.tscn: Hero selection (simplified)
-  - EnemyMap.tscn: Main 3D game level
-  - Map.tscn: 3D dungeon map
-  - Enemy.tscn: Enemy character
-  - Tower.tscn: Tower defense unit
-  - Player.tscn: Player character
-  - Crystal.tscn: Objective crystal
-- `scripts/`: GDScript files
-  - MainMenu.gd: Menu logic
-  - Tavern.gd: Tavern logic
-  - GameManager.gd: Main game logic, state management
-  - Enemy.gd: Enemy behavior
-  - Tower.gd: Tower behavior
-  - Player.gd: Player movement
-  - Crystal.gd: Crystal health
-- `assets/`: Models, textures, audio (empty for now)
-- `project.godot`: Godot project configuration
+## Skills Index
 
-## How to Run
+| Skill | Domain | Emoji |
+|-------|--------|-------|
+| `security-audit` | Application Security & Penetration Testing | 🔒 |
+| `system-architect` | Distributed Systems & Cloud Architecture | 🏗️ |
+| `data-engineer` | ETL, Pipelines & Big Data Infrastructure | 📊 |
+| `ml-ops` | Machine Learning Operations & Model Deployment | 🤖 |
+| `database-optimizer` | Query Tuning & Database Performance | ⚡ |
+| `devops-sre` | Site Reliability & Infrastructure Automation | 🔄 |
+| `api-designer` | REST/GraphQL API Design & Versioning | 🔌 |
+| `frontend-performance` | Web Performance & Core Web Vitals | 🚀 |
+| `container-security` | Kubernetes & Container Hardening | 🛡️ |
+| `incident-responder` | Security Incident Response & Forensics | 🚨 |
+| `compliance-auditor` | GDPR, SOC2, HIPAA & Regulatory Compliance | 📋 |
+| `cloud-cost-optimizer` | FinOps & Cloud Spend Reduction | 💰 |
+| `chaos-engineer` | Resilience Testing & Failure Injection | 💥 |
+| `observability-expert` | Logging, Metrics, Tracing & Debugging | 🔍 |
+| `threat-modeler` | STRIDE, DREAD & Attack Surface Analysis | 🎯 |
 
-1. Install Godot 4.5 or later
-2. Open the `project.godot` file in the Godot Editor
-3. Press F5 or click the Play button
+## Structure
 
-## Controls
+Each skill follows this format:
 
-- **Main Menu/Tavern**: Click buttons to navigate
-- **Enemy Map**:
-  - WASD: Move player
-  - Left Click: Place tower (during build phase)
-  - G: Start wave (during build phase)
+```yaml
+---
+name: skill-name
+description: >
+  Concise description of when to activate this skill.
+metadata:
+  publisher: github.com/welshe
+  version: "1.0.0"
+  target: "DeepSeek v4"
+clawdbot:
+  emoji: "🔧"
+  requires:
+    bins: []
+    os: ["linux", "darwin", "win32"]
+```
 
-## Game Flow
+Followed by Markdown sections:
+- **Core Identity** - Role definition and mindset
+- **Methodology** - Systematic approach
+- **Quick Reference** - Commands, patterns, checklists
+- **Anti-Patterns** - What NOT to do
+- **Integration** - Related skills
 
-1. **Main Menu**: Click "Start Game"
-2. **Tavern**: Select hero (currently just "Apprentice"), click "Enter Map"
-3. **Enemy Map**:
-   - Initial build phase: Place towers with left click
-   - Press G to start wave
-   - Enemies spawn and path towards crystal
-   - Towers shoot at enemies
-   - When all enemies defeated, return to build phase
-   - Repeat for increasing waves
+## License
 
-## Future Enhancements
-
-To make it more accurate to Dungeon Defenders:
-
-- Add different tower types (archer, mage, etc.)
-- Implement hero abilities and upgrades
-- Add mana system
-- More detailed 3D models and textures
-- Sound effects and music
-- UI for tower selection and upgrades
-- Save/load game state
-- Multiple maps and difficulty levels
-
-## Notes
-
-This is a basic prototype capturing the core tower defense mechanics. Dungeon Defenders has many complex systems that would require significant development to fully recreate.
-# PeachyOnline
+MIT License - Use freely in your AI workflows.
